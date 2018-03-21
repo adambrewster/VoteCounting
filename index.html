@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Teller's Report</title>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<script src="counting.js"></script>
+<style>
+h1 { font-size: 20pt }
+h2 { font-size: 16pt }
+h3 { font-size: 14pt }
+th { text-align: left }
+textarea: { resize: none } 
+</style>
+</head>
+<body>
+<h1 id="header">Quick Vote Entry</h1>
+<h3>Step 1. Parameters</h3>
+<table>
+<tr><th>Header</th><td><input id="header_inp" value="Sample Election"></td></tr>
+<tr><th>Number To Be Elected</th><td><input id="num_inp" value="2" type="number" required=true></td></tr>
+</table>
+
+<h3>Step 2. Nominations</h3>
+Enter the names of the candidates nominated. Optionally, you may add
+a short nickname for a candidate to make it easier to tally votes.<p>
+<table>
+<thead><tr><th>Nickname</th><th>Full Name</th><th>Abbreviations</th></tr></thead>
+<tbody id="nominees"></tbody>
+</table>
+
+<h3>Step 3. Tally Votes</h3>
+Enter the names indicated on each ballot.<p>
+
+Names need not be entered exactly as listed on the ballot, but as a teller
+you must interpret the intent of the voter and ensure that the computer
+accurately records his or her intention.<p>
+
+You may abbreviate names as long as you specify enough to make the
+abbreviation unique.  The shortest unique prefix of each name is calculated and shown
+to the right of the names of nominees.<p>
+
+Names matching the ballot you have entered are shown to the right of the input area.<p>
+<table>
+<tbody id="ballots"></tbody>
+</table>
+
+<h3>Step 4. Report Results</h3>
+When all of the ballots are entered, <a href='#' onclick="submitBallots(); return false;">Submit</a> the date to OpaVote to be counted.
+<pre id="blt"></pre>
+</body>
+</html>
